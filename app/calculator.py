@@ -1,7 +1,7 @@
-# from flask import Flask 
-# app = Flask(__name__)
+from flask import Flask 
+app = Flask(__name__)
 
-# @app.route("/")
-# def test():
-# 	return "<h1>Hello world!</h1>"
+@app.route("/")
+def test():
+	return "Hello world!"
 
