@@ -1,4 +1,4 @@
-from app.calculator.py import app
+from app.calculator import app
 
 if __name__=="__main__":
 	app.run()
