@@ -1,7 +1,7 @@
-from flask import Flask 
+from flask import Flask, render_template 
 app = Flask(__name__)
 
 @app.route("/")
 def test():
-	return "Hello world!"
+	return render_template("calculator_page.html")
 
