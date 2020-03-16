@@ -5,3 +5,7 @@
 .large {
 	width: 40px;
 }
+
+p {
+	border-top: solid;
+}
