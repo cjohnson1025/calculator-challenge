@@ -12,3 +12,66 @@ def calculation():
 		return json.dumps({'html':'<span>It worked</span>'})
 	return render_template("calculator_page.html")
 
+def compute(input):
+
+    #list of chars that are accepted by the calculator
+    validChars = "012345666789/*-+"
+
+    #split the input string into a list of characters
+    inputList = [char for char in input];
+
+    #checks to see if input is valid
+    for char in inputList:
+        if char not in validChars:
+            return "Not a valid input"
+
+
+    computeStack = [];
+    while inputList != []:
+        nextChar = inputList[-1]
+
+        #if next character is a digit must check previous indices to find when the number ends
+        if inputList[-1].isdigit(): 
+            i = 0
+            while i < len(inputList) and (inputList[-1-i].isdigit()):
+                i += 1;
+            nextChar = inputList[-i:]
+        computeStack.append(nextChar)
+
+        if len(computeStack) > 1:
+            if computeStack[-2] == '*':
+                lhs = "".join(computeStack.pop());
+                computeStack.pop();
+                rhs = "".join(computeStack.pop());
+                computeStack.append([str(int(lhs)*int(rhs))])
+            elif computeStack[-2] == '/':
+                lhs = "".join(computeStack.pop());
+                computeStack.pop();
+                rhs = "".join(computeStack.pop());
+                computeStack.append([str(int(lhs)/int(rhs))])
+                
+        inputList = inputList[:-i]
+       
+
+    while len(computeStack) > 1:
+        if computeStack[-2] == '+':
+            lhs = "".join(computeStack.pop());
+            computeStack.pop();
+            rhs = "".join(computeStack.pop());
+            computeStack.append([str(int(lhs)+int(rhs))])
+        elif computeStack[-2] == '-':
+            lhs = "".join(computeStack.pop());
+            computeStack.pop();
+            rhs = "".join(computeStack.pop());
+            computeStack.append([str(int(lhs)-int(rhs))])
+   
+    return computeStack[0][0]
+
+#TODO:
+#connect number/computation buttons to input box
+#update below paragraphs based on input
+	#hide empty paragraphs 
+	#shift paragraphs down after each computation
+	#show a max of the last 10 computations
+#show error message if characters outside of 0,1,2,3,4,5,6,7,8,9,/,*,-,+ are entered into input
+#if time add '(' and ')' to calculator
