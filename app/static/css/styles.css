@@ -2,6 +2,10 @@
 	width: 20px;
 }
 
+.large {
+	width: 42px;
+}
+
 p {
 	border-top: solid;
 	border-width: 2px;
