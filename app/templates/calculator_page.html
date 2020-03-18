@@ -8,25 +8,31 @@
 			<input type="text" id="equation" name="equation" disabled>
 			<input type="button" value="Clear">
 			<br>
-			<input type="button" value="7" class="small">
-			<input type="button" value="8" class="small">
-			<input type="button" value="9" class="small">
-			<input type="button" value="*" class="small">
+			<input type="button" value="7" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="8" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="9" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="*" class="small" onclick="addToEquationInput(this.value)">
 			<br>
-			<input type="button" value="4" class="small">
-			<input type="button" value="5" class="small">
-			<input type="button" value="6" class="small">
-			<input type="button" value="/" class="small">
+			<input type="button" value="4" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="5" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="6" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="/" class="small" onclick="addToEquationInput(this.value)">
 			<br>
-			<input type="button" value="1" class="small">
-			<input type="button" value="2" class="small">
-			<input type="button" value="3" class="small">
-			<input type="button" value="+" class="small">
+			<input type="button" value="1" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="2" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="3" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="+" class="small" onclick="addToEquationInput(this.value)">
 			<br>
-			<input type="button" value="0" class="small">
-			<input type="button" value="." class="small">
+			<input type="button" value="0" class="small" onclick="addToEquationInput(this.value)">
+			<input type="button" value="." class="small" onclick="addToEquationInput(this.value)">
 			<input type="button" value="=" class="small">
-			<input type="button" value="-" class="small">
+			<input type="button" value="-" class="small" onclick="addToEquationInput(this.value)">
+
+			<script>
+				function addToEquationInput(val) {
+				  document.getElementById("equation").value = document.getElementById("equation").value + val;
+				}
+			</script>
 		</form>
 		{% for computation in computations %}
 			<p>{{ computation }}</p>
