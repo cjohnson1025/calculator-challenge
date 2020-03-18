@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 computations = []
-current_computation = ""
 
 @app.route("/")
 def initial_page():
@@ -11,7 +10,7 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-    if eq:
+    if str(eq) != "":
 	   compute(str(eq))
 	return render_template("calculator_page.html", computations=computations)
 
@@ -46,12 +45,12 @@ def compute(input):
                 lhs = "".join(computeStack.pop());
                 computeStack.pop();
                 rhs = "".join(computeStack.pop());
-                computeStack.append([str(int(lhs)*int(rhs))])
+                computeStack.append([str(double(lhs)*double(rhs))])
             elif computeStack[-2] == '/':
                 lhs = "".join(computeStack.pop());
                 computeStack.pop();
                 rhs = "".join(computeStack.pop());
-                computeStack.append([str(int(lhs)/int(rhs))])
+                computeStack.append([str(double(lhs)/double(rhs))])
                 
         inputList = inputList[:-i]
        
@@ -61,12 +60,12 @@ def compute(input):
             lhs = "".join(computeStack.pop());
             computeStack.pop();
             rhs = "".join(computeStack.pop());
-            computeStack.append([str(int(lhs)+int(rhs))])
+            computeStack.append([str(double(lhs)+double(rhs))])
         elif computeStack[-2] == '-':
             lhs = "".join(computeStack.pop());
             computeStack.pop();
             rhs = "".join(computeStack.pop());
-            computeStack.append([str(int(lhs)-int(rhs))])
+            computeStack.append([str(double(lhs)-double(rhs))])
     if len(computations) > 9:
         computations.pop();
     computations.insert(0, input + " = " + str(computeStack[0][0]))
