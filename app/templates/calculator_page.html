@@ -3,34 +3,34 @@
 	<head>
 		<link rel="stylesheet" href="../static/css/styles.css">
 	</head>
-	<body>
+	<body>C</button>
+			<br>
 		<form role="form" method='POST' action='/'>
 			<input type="text" id="equation" name="equation" disabled>
 			<!-- <input type="button" value="clear">(</button>
 			<input type="button" value="clear">)</button> -->
-			<input type="button" value="clear">C</button>
-			<br>
+			<input type="button" value="Clear">
 			<!-- <input type="button" value="clear">*</button>
 			<br> -->
-			<input type="button" value="seven">7</button>
-			<input type="button" value="eight">8</button>
-			<input type="button" value="nine">9</button>
-			<input type="button" value="times">*</button>
+			<input type="button" value="7">
+			<input type="button" value="8">
+			<input type="button" value="9">
+			<input type="button" value="*">
 			<br>
-			<input type="button" value="four">4</button>
-			<input type="button" value="five">5</button>
-			<input type="button" value="six">6</button>
-			<input type="button" value="divide">/</button>
+			<input type="button" value="4">
+			<input type="button" value="5">
+			<input type="button" value="6">
+			<input type="button" value="/">
 			<br>
-			<input type="button" value="one">1</button>
-			<input type="button" value="two">2</button>
-			<input type="button" value="three">3</button>
-			<input type="button" value="four">+</button>
+			<input type="button" value="1">
+			<input type="button" value="2">
+			<input type="button" value="3">
+			<input type="button" value="+">
 			<br>
-			<input type="button" value="zero">0</button>
-			<input type="button" value="point">.</button>
-			<input type="button" value="equals">=</button>
-			<input type="button" value="minus">-</button>
+			<input type="button" value="0">
+			<input type="button" value=".">
+			<input type="button" value="=">
+			<input type="button" value="-">
 		</form>
 		{% for computation in computations %}
 			<p>{{ computation }}</p>
