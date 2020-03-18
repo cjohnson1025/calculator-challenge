@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-computations = []
+computations = [];
+current_computation = "";
 
 @app.route("/")
 def initial_page():
@@ -10,15 +11,13 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-    compute(str(eq))
-    # if str(eq) != "":
-	   # compute(str(eq))
+	compute(eq)
 	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
 
-    list of chars that are accepted by the calculator
-    validChars = "0123456789/*-+."
+    #list of chars that are accepted by the calculator
+    validChars = "0123456789/*-+"
 
     #split the input string into a list of characters
     inputList = [char for char in input];
@@ -36,7 +35,7 @@ def compute(input):
         #if next character is a digit must check previous indices to find when the number ends
         if inputList[-1].isdigit(): 
             i = 0
-            while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == '.'):
+            while i < len(inputList) and (inputList[-1-i].isdigit()):
                 i += 1;
             nextChar = inputList[-i:]
         computeStack.append(nextChar)
@@ -46,12 +45,12 @@ def compute(input):
                 lhs = "".join(computeStack.pop());
                 computeStack.pop();
                 rhs = "".join(computeStack.pop());
-                computeStack.append([str(double(lhs)*double(rhs))])
+                computeStack.append([str(int(lhs)*int(rhs))])
             elif computeStack[-2] == '/':
                 lhs = "".join(computeStack.pop());
                 computeStack.pop();
                 rhs = "".join(computeStack.pop());
-                computeStack.append([str(double(lhs)/double(rhs))])
+                computeStack.append([str(int(lhs)/int(rhs))])
                 
         inputList = inputList[:-i]
        
@@ -61,18 +60,17 @@ def compute(input):
             lhs = "".join(computeStack.pop());
             computeStack.pop();
             rhs = "".join(computeStack.pop());
-            computeStack.append([str(double(lhs)+double(rhs))])
+            computeStack.append([str(int(lhs)+int(rhs))])
         elif computeStack[-2] == '-':
             lhs = "".join(computeStack.pop());
             computeStack.pop();
             rhs = "".join(computeStack.pop());
-            computeStack.append([str(double(lhs)-double(rhs))])
+            computeStack.append([str(int(lhs)-int(rhs))])
     if len(computations) > 9:
         computations.pop();
-    computations.insert(0, input + " = " + str(computeStack[0][0]))
+    computations.insert(0, input + " = " str(computeStack[0][0]))
 
     return computeStack[0][0]
-    
 
 #TODO:
 #connect number/computation buttons to input box
