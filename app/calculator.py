@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-computations = ["4+5=9"];
+computations = [];
 current_computation = "";
 
 @app.route("/")
@@ -17,7 +17,7 @@ def calculation():
 def compute(input):
 
     #list of chars that are accepted by the calculator
-    validChars = "012345666789/*-+"
+    validChars = "0123456789/*-+"
 
     #split the input string into a list of characters
     inputList = [char for char in input];
