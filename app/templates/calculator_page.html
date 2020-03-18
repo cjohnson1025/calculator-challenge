@@ -6,31 +6,31 @@
 	<body>
 		<form role="form" method='POST' action='/'>
 			<input type="text" id="equation" name="equation" disabled>
-			<!-- <button type="button" class="small" name="clear">(</button>
-			<button type="button" class="small" name="clear">)</button> -->
-			<button type="submit" class="small" name="clear">C</button>
+			<!-- <input type="button" value="clear">(</button>
+			<input type="button" value="clear">)</button> -->
+			<input type="button" value="clear">C</button>
 			<br>
-			<!-- <button type="button" class="small" name="clear">*</button>
+			<!-- <input type="button" value="clear">*</button>
 			<br> -->
-			<button type="submit" class="small" name="seven">7</button>
-			<button type="submit" class="small" name="eight">8</button>
-			<button type="submit" class="small" name="nine">9</button>
-			<button type="submit" class="small" name="times">*</button>
+			<input type="button" value="seven">7</button>
+			<input type="button" value="eight">8</button>
+			<input type="button" value="nine">9</button>
+			<input type="button" value="times">*</button>
 			<br>
-			<button type="submit" class="small" name="four">4</button>
-			<button type="submit" class="small" name="five">5</button>
-			<button type="submit" class="small" name="six">6</button>
-			<button type="submit" class="small" name="divide">/</button>
+			<input type="button" value="four">4</button>
+			<input type="button" value="five">5</button>
+			<input type="button" value="six">6</button>
+			<input type="button" value="divide">/</button>
 			<br>
-			<button type="submit" class="small" name="one">1</button>
-			<button type="submit" class="small" name="two">2</button>
-			<button type="submit" class="small" name="three">3</button>
-			<button type="submit" class="small" name="four">+</button>
+			<input type="button" value="one">1</button>
+			<input type="button" value="two">2</button>
+			<input type="button" value="three">3</button>
+			<input type="button" value="four">+</button>
 			<br>
-			<button type="submit" class="small" name="zero">0</button>
-			<button type="submit" class="small" name="point">.</button>
-			<button type="submit" class="small" name="equals">=</button>
-			<button type="submit" class="small" name="minus">-</button>
+			<input type="button" value="zero">0</button>
+			<input type="button" value="point">.</button>
+			<input type="button" value="equals">=</button>
+			<input type="button" value="minus">-</button>
 		</form>
 		{% for computation in computations %}
 			<p>{{ computation }}</p>

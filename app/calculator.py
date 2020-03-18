@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 computations = ["4+5=9"];
+current_computation = "";
 
 @app.route("/")
 def initial_page():
@@ -66,7 +67,10 @@ def compute(input):
             computeStack.pop();
             rhs = "".join(computeStack.pop());
             computeStack.append([str(int(lhs)-int(rhs))])
-   
+    if len(computations) > 9:
+        computations.pop();
+    computations.insert(0, input + str(computeStack[0][0]))
+
     return computeStack[0][0]
 
 #TODO:
