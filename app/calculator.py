@@ -10,7 +10,7 @@ def initial_page():
 
 @app.route("/", methods=['POST'])
 def calculation():
-	eq = request.form['equation']
+	# eq = request.form['equation']
 	# computations.append(eq)
 	return render_template("calculator_page.html", computations=computations)
 
