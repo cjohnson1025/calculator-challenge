@@ -10,8 +10,8 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-    if str(eq) != "":
-	   compute(str(eq))
+    # if str(eq) != "":
+	   # compute(str(eq))
 	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
