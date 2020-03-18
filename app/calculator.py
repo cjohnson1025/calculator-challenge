@@ -5,14 +5,14 @@ computations = ["4+5=9"];
 
 @app.route("/")
 def initial_page():
-	return render_template("calculator_page.html")#, computations=computations)
+	return render_template("calculator_page.html", computations=computations)
 
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
 	if eq:
 		pass
-	return render_template("calculator_page.html")#, computations=computations)
+	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
 
