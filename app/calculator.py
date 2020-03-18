@@ -11,7 +11,8 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-	compute(str(eq))
+    if eq:
+	   compute(str(eq))
 	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
@@ -68,7 +69,7 @@ def compute(input):
             computeStack.append([str(int(lhs)-int(rhs))])
     if len(computations) > 9:
         computations.pop();
-    computations.insert(0, input + str(computeStack[0][0]))
+    computations.insert(0, input + " = " + str(computeStack[0][0]))
 
     return computeStack[0][0]
 
