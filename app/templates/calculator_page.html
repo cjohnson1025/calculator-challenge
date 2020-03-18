@@ -3,34 +3,30 @@
 	<head>
 		<link rel="stylesheet" href="../static/css/styles.css">
 	</head>
-	<body>C</button>
-			<br>
+	<body>
 		<form role="form" method='POST' action='/'>
 			<input type="text" id="equation" name="equation" disabled>
-			<!-- <input type="button" value="clear">(</button>
-			<input type="button" value="clear">)</button> -->
 			<input type="button" value="Clear">
-			<!-- <input type="button" value="clear">*</button>
-			<br> -->
-			<input type="button" value="7">
-			<input type="button" value="8">
-			<input type="button" value="9">
-			<input type="button" value="*">
 			<br>
-			<input type="button" value="4">
-			<input type="button" value="5">
-			<input type="button" value="6">
-			<input type="button" value="/">
+			<input type="button" value="7" class="small">
+			<input type="button" value="8" class="small">
+			<input type="button" value="9" class="small">
+			<input type="button" value="*" class="small">
 			<br>
-			<input type="button" value="1">
-			<input type="button" value="2">
-			<input type="button" value="3">
-			<input type="button" value="+">
+			<input type="button" value="4" class="small">
+			<input type="button" value="5" class="small">
+			<input type="button" value="6" class="small">
+			<input type="button" value="/" class="small">
 			<br>
-			<input type="button" value="0">
-			<input type="button" value=".">
-			<input type="button" value="=">
-			<input type="button" value="-">
+			<input type="button" value="1" class="small">
+			<input type="button" value="2" class="small">
+			<input type="button" value="3" class="small">
+			<input type="button" value="+" class="small">
+			<br>
+			<input type="button" value="0" class="small">
+			<input type="button" value="." class="small">
+			<input type="button" value="=" class="small">
+			<input type="button" value="-" class="small">
 		</form>
 		{% for computation in computations %}
 			<p>{{ computation }}</p>
