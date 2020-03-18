@@ -6,7 +6,7 @@
 	<body>
 		<form role="form" method='POST' action='/'>
 			<input type="text" id="equation" name="equation" disabled>
-			<input type="button" value="Clear">
+			<input type="button" value="Clear" onclick="clearInput()">
 			<br>
 			<input type="button" value="7" class="small" onclick="addToEquationInput(this.value)">
 			<input type="button" value="8" class="small" onclick="addToEquationInput(this.value)">
@@ -30,7 +30,11 @@
 
 			<script>
 				function addToEquationInput(val) {
-				  document.getElementById("equation").value = document.getElementById("equation").value + val;
+					document.getElementById("equation").value = document.getElementById("equation").value + val;
+				}
+
+				function clearInput() {
+					document.getElementById("equation").value = "";
 				}
 			</script>
 		</form>
