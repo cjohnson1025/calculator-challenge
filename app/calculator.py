@@ -11,13 +11,13 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-	computations.append(eq)
+	compute(eq)
 	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
 
     #list of chars that are accepted by the calculator
-    validChars = "0123456789/*-+"
+    validChars = "0123456789/*-+."
 
     #split the input string into a list of characters
     inputList = [char for char in input];
@@ -35,7 +35,7 @@ def compute(input):
         #if next character is a digit must check previous indices to find when the number ends
         if inputList[-1].isdigit(): 
             i = 0
-            while i < len(inputList) and (inputList[-1-i].isdigit()):
+            while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == .):
                 i += 1;
             nextChar = inputList[-i:]
         computeStack.append(nextChar)
