@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-computations = [];
-current_computation = "";
+computations = []
+current_computation = ""
 
 @app.route("/")
 def initial_page():
@@ -35,8 +35,8 @@ def compute(input):
         #if next character is a digit must check previous indices to find when the number ends
         if inputList[-1].isdigit(): 
             i = 0
-            while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == .):
-                i += 1;
+            # while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == .):
+            #     i += 1;
             nextChar = inputList[-i:]
         computeStack.append(nextChar)
 
