@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-computations = [4+5=9];
+computations = ["4+5=9"];
 
 @app.route("/")
 def initial_page():
