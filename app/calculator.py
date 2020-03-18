@@ -11,7 +11,7 @@ def initial_page():
 @app.route("/", methods=['POST'])
 def calculation():
 	eq = request.form['equation']
-	# compute(str(eq))
+	compute(str(eq))
 	return render_template("calculator_page.html", computations=computations)
 
 def compute(input):
@@ -35,8 +35,8 @@ def compute(input):
         #if next character is a digit must check previous indices to find when the number ends
         if inputList[-1].isdigit(): 
             i = 0
-            # while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == .):
-            #     i += 1;
+            while i < len(inputList) and (inputList[-1-i].isdigit() or inputList[-1-i] == '.'):
+                i += 1;
             nextChar = inputList[-i:]
         computeStack.append(nextChar)
 
